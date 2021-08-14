@@ -10,7 +10,7 @@ frontend/coverage
 
 # production
 frontend/build
-# backend/backend/settings.py
+backend/backend/settings.py
 
 # misc
 frontend/.DS_Store
