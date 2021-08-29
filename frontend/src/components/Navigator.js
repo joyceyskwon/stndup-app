@@ -16,8 +16,8 @@ export default class Navigator extends Component {
 
   render() {
     return (
-      <div>
-        <Navbar color="light" light expand="md">
+      
+        <Navbar color="light" light expand="md" sticky="top" expanded="true">
           <NavbarBrand href="/">
             <img src={logo} alt="logo" class="logo" />
           </NavbarBrand>
@@ -34,7 +34,7 @@ export default class Navigator extends Component {
             <NavbarText>Simple Text</NavbarText>
           </Collapse>
         </Navbar>
-      </div>
+      
     )
   }
 }

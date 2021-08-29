@@ -4,6 +4,9 @@ import Modal from "./components/Modal";
 import Navigator from './components/Navigator';
 import axios from "axios";
 
+axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
+axios.defaults.xsrfCookieName = "csrftoken";
+
 class App extends Component {
   constructor(props) {
     super(props);
