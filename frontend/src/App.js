@@ -133,7 +133,7 @@ class App extends Component {
 
   render() {
     return (
-      <main className="container">
+      <div>
         <Navigator />
         <h1 className="text-white text-uppercase text-center my-4">Todo app</h1>
         <div className="row">
@@ -161,7 +161,7 @@ class App extends Component {
             onSave={this.handleSubmit}
           />
         ) : null}
-      </main>
+      </div>
     );
   }
 }
