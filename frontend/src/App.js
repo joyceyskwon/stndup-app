@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import './App.css';
 import Modal from "./components/Modal";
 import Navigator from './components/Navigator';
+import CardsContainer from './components/CardsContainer';
 import axios from "axios";
 
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
@@ -133,26 +134,14 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Navigator />
-        <h1 className="text-white text-uppercase text-center my-4">Todo app</h1>
         <div className="row">
-          <div className="col-md-6 col-sm-10 mx-auto p-0">
-            <div className="card p-3">
-              <div className="mb-4">
-                <button
-                  className="btn btn-primary"
-                  onClick={this.createItem}
-                >
-                  Add task
-                </button>
-              </div>
-              {this.renderTabList()}
-              <ul className="list-group list-group-flush border-top-0">
-                {this.renderItems()}
-              </ul>
-            </div>
-          </div>
+          <CardsContainer
+            createItem={this.createItem}
+            renderTabList={this.renderTabList}
+            renderItems={this.renderItems}
+          />
         </div>
         {this.state.modal ? (
           <Modal
@@ -161,7 +150,7 @@ class App extends Component {
             onSave={this.handleSubmit}
           />
         ) : null}
-      </div>
+      </>
     );
   }
 }

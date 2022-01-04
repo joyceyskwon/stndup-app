@@ -5,4 +5,5 @@ from .models import Stndup
 class StndupSerializer(serializers.ModelSerializer):
     class Meta:
         model = Stndup
-        fields = ('id', 'title', 'description', 'completed')
+        fields = ('id', 'created_at', 'title',
+                  'description', 'completed')

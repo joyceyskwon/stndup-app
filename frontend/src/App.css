@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding: 10px;
 }
 
 .logo {
@@ -20,11 +21,20 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  /* color: white; */
 }
 
 .App-link {
   color: #61dafb;
+}
+
+.row {
+  padding-top: 100px;
+}
+
+.card {
+  background-color: #89cff0;
+  border-style: none;
 }
 
 @keyframes App-logo-spin {
