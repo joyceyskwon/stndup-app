@@ -2,7 +2,9 @@ import React, { Component } from "react";
 import './App.css';
 import Modal from "./components/Modal";
 import Navigator from './components/Navigator';
+import { BrowserRouter as Router, Route, withRouter, Routes } from 'react-router-dom';
 import CardsContainer from './components/CardsContainer';
+import Login from './components/Login';
 import axios from "axios";
 
 axios.defaults.xsrfHeaderName = "X-CSRFTOKEN";
@@ -20,6 +22,7 @@ class App extends Component {
         description: "",
         completed: false,
       },
+      currentUser: null,
     };
   }
 
@@ -132,24 +135,44 @@ class App extends Component {
     ));
   };
 
+  loginUser = (username, password) => {
+    console.log(username, password, ': this is a login user data!')
+  }
+
   render() {
     return (
       <>
-        <Navigator />
+      <Router>
+        <Navigator 
+          currentUser={this.state.currentUser}
+        />
         <div className="row">
+          <Routes>
+            <Route exact path="/" component={() => <CardsContainer
+              currentUser={this.state.currentUser}
+              createItem={this.createItem}
+              renderTabList={this.renderTabList}
+              renderItems={this.renderItems}
+            />} />
+            <Route exact path="/login" component={() => <Login 
+              loginUser={this.loginUser}
+            />} />
+          </Routes>
           <CardsContainer
+            currentUser={this.state.currentUser}
             createItem={this.createItem}
             renderTabList={this.renderTabList}
             renderItems={this.renderItems}
           />
         </div>
-        {this.state.modal ? (
+        {this.state.currentUser && this.state.modal ? (
           <Modal
             activeItem={this.state.activeItem}
             toggle={this.toggle}
             onSave={this.handleSubmit}
           />
         ) : null}
+      </Router>
       </>
     );
   }
