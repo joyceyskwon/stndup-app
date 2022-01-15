@@ -24,4 +24,5 @@ router.register(r'stndups', views.StndupView, 'stndup')
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
+    # path(r'^auth/', include('djoser.urls')),
 ]
